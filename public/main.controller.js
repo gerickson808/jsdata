@@ -17,7 +17,7 @@ app.config(function($stateProvider) {
 	});
 });
 
-app.controller('MainController', function($scope, posts) {
+app.controller('MainController', function($scope, posts, Post) {
 
 	$scope.allPosts = posts;
 	console.log('posts: ', posts);
