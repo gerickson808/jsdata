@@ -14,9 +14,11 @@ app.config(function($stateProvider) {
 })
 
 // add necessary dependencies here 
-app.controller('CreateCtrl', function($scope, author, Post, $state) {
+app.controller('CreateCtrl', function($scope, author, Post, User, $state) {
 
-	if(author) $scope.newPost = {author: author.username};
+	if(author){
+		 $scope.newPost = {author: author.username}
+	} 
 	$scope.previewTrue = false;
 
 	$scope.preview = function() {
@@ -32,7 +34,11 @@ app.controller('CreateCtrl', function($scope, author, Post, $state) {
 			b) changes the state to 'main'  
 
 	*/
+
+
 	 $scope.postPost = function(){
+	 	if(!author) $scope.notloggedin = true;
+	 	console.log(User.get($scope.newPost.author));
 	 	var $post = $scope.newPost;
     Post.create({
     	title: $post.title,

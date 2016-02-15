@@ -5,7 +5,7 @@
 	<h1>Write New Post</h1>
 </div>
 
-
+<div class="alert alert-danger" ng-show="notloggedin">Please Sign Up to Post</div>
 <form ng-submit="postPost()" ng-model="newPost">
 	<div class="form-group">
 		<label>Title</label>
