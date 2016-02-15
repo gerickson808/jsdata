@@ -6,7 +6,7 @@
 </div>
 
 
-<form ng-submit="createNewPost()" ng-model="newPost">
+<form ng-submit="postPost()" ng-model="newPost">
 	<div class="form-group">
 		<label>Title</label>
 		<input type="text" class="form-control" placeholder="Title" ng-model="newPost.title" required/>
@@ -14,7 +14,7 @@
 
 	<div class="form-group">
 		<label>Author</label>
-		<input type="text" class="form-control" placeholder="Author" ng-model="newPost.name" required />
+		<input type="text" class="form-control" placeholder="Author" ng-model="newPost.author" required />
 	</div>
 
 	<div class="form-group">
@@ -33,7 +33,7 @@
 		<h2>{{ newPost.title }}</h2>
 	</div>
 
-	<h3>Author: {{ newPost.name }}</h3>
+	<h3>Author: {{ newPost.author }}</h3>
 
 	<p>{{ newPost.body }}</p>
 </div>

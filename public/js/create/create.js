@@ -10,22 +10,18 @@ app.config(function($stateProvider) {
 				return User.get($stateParams.userId);
 			}
 		}  
-		/* 
-				add a resolve block that has an author function which 
-				users $stateParams to retrieve the author object
-		*/
 	})
 })
 
 // add necessary dependencies here 
-app.controller('CreateCtrl', function($scope, author) {
+app.controller('CreateCtrl', function($scope, author, Post, $state) {
 
-	$scope.newPost = {name: author.username};
+	$scope.newPost = {author: author.username};
 	$scope.previewTrue = false;
 
 	$scope.preview = function() {
 		$scope.previewTrue = !$scope.previewTrue;
-	}
+	};
 
 	/*
 
@@ -36,5 +32,18 @@ app.controller('CreateCtrl', function($scope, author) {
 			b) changes the state to 'main'  
 
 	*/
-	
-}) 
+	 $scope.postPost = function(){
+	 	var $post = $scope.newPost;
+    Post.create({
+    	title: $post.title,
+    	body: $post.body,
+    	author: author
+    })
+    .then(function(post){
+      console.log('post', post);
+      $state.go('main');
+    });
+  };
+
+
+});
