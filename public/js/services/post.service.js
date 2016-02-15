@@ -33,6 +33,7 @@ app.factory('Post', function(DS) {
 			}
 		}
 	});
-});
+	return Post;
+}).run(function(Post){});
 
 

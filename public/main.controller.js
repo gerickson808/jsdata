@@ -10,8 +10,8 @@ app.config(function($stateProvider) {
 			users: function(User){
 				return User.findAll();
 			},
-			posts: function(Post){
-				return Post.findAll();
+			posts: function(Post,users){
+				return Post.findAll({});
 			}
 		}
 	});
