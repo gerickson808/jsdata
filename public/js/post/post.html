@@ -4,15 +4,16 @@
 
 	<div class="postTitle">
     <!-- display the post title -->
-		<h2></h2>
+		<h2>{{post.title}}</h2>
     <!-- add functionality that makes this Edit button work -->
-		<button type="button" class="btn btn-primary">Edit</button>
+		<button ng-click="edit()" type="button" class="btn btn-primary">Edit</button>
 	</div>
-
+	<h3>{{post._author.username}}</h3>
   <!-- display the user's name by accessing the user object embedded in the post -->
 
+
   <!-- display the post body -->
-	<p></p>
+	<p>{{post.body}}</p>
 
 	<a ui-sref="main">Back to All Posts</a>
 

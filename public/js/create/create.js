@@ -16,7 +16,7 @@ app.config(function($stateProvider) {
 // add necessary dependencies here 
 app.controller('CreateCtrl', function($scope, author, Post, $state) {
 
-	$scope.newPost = {author: author.username};
+	if(author) $scope.newPost = {author: author.username};
 	$scope.previewTrue = false;
 
 	$scope.preview = function() {
